@@ -1,0 +1,14 @@
+{% extends 'chat/base.html' %}
+
+{% block content %}
+<ul>
+{% if conversation_list %}
+    {% for conversation in conversation_list %}
+        <li> <a href="{% url 'chat:conversation' conversation.id %}">{{ conversation.name }}</a></li>
+    {% endfor %}
+{% endif %}
+    <li><a href="{% url 'chat:create_conversation' %}"> New conversation </a></li>
+    <li><a href="{% url 'chat:settings' %}"> Profile options </a></li>
+    <li><a href="{% url 'chat:logout' %}"> Log out </a></li>
+</ul>
+{% endblock %}

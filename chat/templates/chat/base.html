@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title> Easy Chat </title>
+    </head>
+    <body>
+        <div class="header">
+            <h1><a href="{% url 'chat:home' %}">Easy Chat</a></h1>
+        </div>
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

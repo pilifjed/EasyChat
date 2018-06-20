@@ -1,0 +1,11 @@
+{% extends 'chat/base.html' %}
+
+{% block content %}
+  <h2>New conversation</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create conversation</button>
+</form>
+
+{% endblock %}

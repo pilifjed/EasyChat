@@ -1,0 +1,33 @@
+{% extends 'chat/base.html' %}
+
+{% block content %}
+    <h2>{{ conv.name }}</h2>
+    
+
+    
+    <ul>
+        Owner:
+            <li>{{conv.owner}}</li>
+        Members:
+        {% for member in members %}
+            <li>{{ member }}</li>
+        {% endfor %}
+    </ul>
+{% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li><tr><td>{{ message.sender }}: </td><td>{{ message.message_content }}</td><td> {{ message.sent_date }}</td></tr></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No messages to show.</p>
+{% endif %}
+
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send</button>
+</form>
+
+{% endblock %}
